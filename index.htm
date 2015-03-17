@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Espejo de textos</title>
+        <meta charset="utf-8" />
+        
+    </head>
+    <body>
+        <div>
+            <h1>Convierte cualquier texto en su equivalente al revés</h1>
+            <form>
+                <textarea rows="4" cols="50" autofocus name="texto" id="areadetexto"></textarea>
+                <input type="submit" value="Enviar" id="submit"  />
+            </form>
+            <h2>Resultado</h2>
+            <input type="text" id="resultado" />
+        </div>
+    </body>
+    <script type="text/javascript">
+            // inicializacion
+            var texto, i, longitud, charins;
+            // Texto a procesar
+            texto = "Ahora";
+            // Toma de datos del texto
+            longitud = texto.length;
+            long = longitud;
+            long--;
+            
+            // Funcion para volver el texto al reves
+            // Acepta un solo argumento (el texto a convertir)
+            function textoAlReves(txt){
+                var devolucion = new Array();
+                do{
+                    charins = texto.charAt(long);
+                    devolucion.push(charins);
+                    long--;
+                    
+                }while(long >= 0);
+                return devolucion;
+            };
+            
+            arrayAlReves = textoAlReves(texto);
+            textoFinal = arrayAlReves.join('');
+            
+            submit = document.getElementById("submit");
+            areadetexto = document.getElementById("areadetexto");
+            resultado = document.getElementById("resultado");
+           
+            submit.addEventListener("click", function(event){
+               event.preventDefault();
+               resultado.value = textoAlReves(areadetexto.value);
+            });
+            
+            
+            
+        </script>
+</html>
